@@ -5,6 +5,7 @@ certificate for each from a single predefined template, tracks progress, and let
 download the results individually or as a ZIP.
 
 **Stack:** Python 3.10+, FastAPI, SQLAlchemy 2 (SQLite by default; any relational DB via `DATABASE_URL`), ReportLab (PDF), pytest.
+**Live Demo:** https://bulk-certificate-generator-tz48.onrender.com
 
 ## Setup
 
