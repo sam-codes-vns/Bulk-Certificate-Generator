@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from typing import Literal
 
 from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Query, Request
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
@@ -60,7 +60,9 @@ def _get_job_or_404(db: Session, job_id: str) -> Job:
         raise HTTPException(404, "Job not found")
     return job
 
-
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse("/docs")
 @app.get("/health")
 def health():
     return {"status": "ok"}
